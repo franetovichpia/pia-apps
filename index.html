@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mis apps</title>
+<meta name="theme-color" content="#F2F3FA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Fredoka:wght@600&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap">
+<style>
+/* Dos puertas grandes: Globología (globos, coral) y Finanzas (azul, anillo). */
+:root{--bg:#F2F3FA;--surface:#FFFFFF;--fg:#1E2240;--muted:#767B98;--line:#E4E6F1;
+  --coral:#FF6F8E;--coral2:#FFB3C4;--blue:#5677F5;--blue2:#A9B9FF;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#11131D;--surface:#191C2A;--fg:#E9EBF7;--muted:#9097B4;--line:#2A2F44;--coral:#FF86A1;--coral2:#5A2E3C;--blue:#8BA3FF;--blue2:#2A3466;color-scheme:dark}}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--fg);font-family:"DM Sans",system-ui,sans-serif;display:flex;flex-direction:column;justify-content:center;
+  padding:max(28px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(28px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+.wrap{max-width:760px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1{font-family:Outfit,system-ui,sans-serif;font-weight:600;font-size:1.6rem;margin:0}
+p{margin:4px 0 0;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+a.door{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:6px;min-height:220px;padding:22px;border-radius:24px;
+  background:var(--surface);border:1px solid var(--line);color:inherit;text-decoration:none;box-shadow:0 10px 30px rgba(30,34,64,.07);transition:transform .15s}
+a.door:hover{transform:translateY(-3px)}
+a.door:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.door b{font-size:1.7rem;font-weight:600;position:relative}
+.door span{color:var(--muted);position:relative}
+.g b{font-family:Fredoka,system-ui,sans-serif;color:var(--coral)}
+.f b{font-family:Outfit,system-ui,sans-serif;color:var(--blue)}
+.balloons{position:absolute;right:18px;top:18px;width:120px;height:120px}
+.ring{position:absolute;right:22px;top:22px;width:104px;height:104px;border-radius:50%;
+  background:conic-gradient(var(--blue) 0 62%,var(--blue2) 0)}
+.ring::after{content:"";position:absolute;inset:18px;border-radius:50%;background:var(--surface)}
+@media (max-width:520px){.grid{grid-template-columns:1fr}a.door{min-height:160px}.balloons{width:90px;height:90px}.ring{width:80px;height:80px}.ring::after{inset:14px}}
+@media (prefers-reduced-motion:reduce){a.door{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div><h1>Hola, Pía</h1><p>¿A dónde vamos?</p></div>
+  <div class="grid">
+    <a class="door g" href="globologia/">
+      <svg class="balloons" viewBox="0 0 120 120" aria-hidden="true">
+        <path d="M44 70 C44 90 60 96 56 118" stroke="var(--muted)" stroke-width="1.5" fill="none" opacity=".5"/>
+        <path d="M80 62 C80 86 66 98 70 118" stroke="var(--muted)" stroke-width="1.5" fill="none" opacity=".5"/>
+        <ellipse cx="44" cy="44" rx="24" ry="28" fill="var(--coral)"/>
+        <ellipse cx="82" cy="38" rx="20" ry="24" fill="var(--coral2)"/>
+        <ellipse cx="37" cy="34" rx="6" ry="9" fill="#fff" opacity=".35"/>
+      </svg>
+      <b>Globología</b><span>Eventos, cotizador y ganancias</span>
+    </a>
+    <a class="door f" href="finanzas/">
+      <div class="ring" aria-hidden="true"></div>
+      <b>Finanzas</b><span>Ingresos, gastos y objetivo del mes</span>
+    </a>
+  </div>
+</div>
+</body>
+</html>
